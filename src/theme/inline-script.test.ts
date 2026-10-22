@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest"
-import { themeInitScript } from "./inline-script"
-import { themeForHour } from "./theme"
+import { themeInitScript } from "./inline-script.js"
+import { themeForHour } from "./theme.js"
 
 // Roda o script num DOM mínimo e confere que ele concorda com themeForHour
 function run(hour: number, stored: string | null) {

@@ -5,7 +5,6 @@
     "noEmit": false,
     "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "moduleResolution": "Bundler"
+    "rootDir": "src"
   }
 }

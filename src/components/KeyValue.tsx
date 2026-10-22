@@ -1,8 +1,8 @@
 "use client"
 
 import type { ReactNode } from "react"
-import { copyLabels, type CopyLabels } from "./labels"
-import { useCopy } from "./useCopy"
+import { copyLabels, type CopyLabels } from "./labels.js"
+import { useCopy } from "./useCopy.js"
 
 interface Props {
   labels?: Partial<CopyLabels>

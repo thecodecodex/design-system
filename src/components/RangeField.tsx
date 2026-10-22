@@ -1,5 +1,6 @@
 "use client"
 
+import { onTextInput } from "./textInput.js"
 import type { ReactNode } from "react"
 
 interface Props {
@@ -24,9 +25,9 @@ export default function RangeField({ label, value, onValue, min, max, step = 1, 
       <label className="flex flex-col gap-1.5 text-sm font-semibold">
         {label}
         <span className="flex items-center gap-3">
-          <input type="range" min={min} max={max} step={step} value={value} className="h-11 min-w-0 flex-1 accent-[var(--btn-primary)]" onChange={(e) => set(e.currentTarget.value)} />
+          <input type="range" min={min} max={max} step={step} value={value} className="h-11 min-w-0 flex-1 accent-[var(--btn-primary)]" {...onTextInput(set)} />
           <span className="flex h-12 w-28 flex-none items-center gap-1.5 rounded-[10px] border-2 border-border bg-bg-primary px-3 font-mono focus-within:outline-3 focus-within:outline-offset-1 focus-within:outline-contrast">
-            <input type="number" inputMode="decimal" min={min} max={max} step={step} value={value} aria-label={typeof label === "string" ? label : undefined} className="min-w-0 flex-1 bg-transparent text-base text-text-primary outline-none" onChange={(e) => set(e.currentTarget.value)} />
+            <input type="number" inputMode="decimal" min={min} max={max} step={step} value={value} aria-label={typeof label === "string" ? label : undefined} className="min-w-0 flex-1 bg-transparent text-base text-text-primary outline-none" {...onTextInput(set)} />
             {unit && <span className="text-sm font-bold text-text-secondary">{unit}</span>}
           </span>
         </span>

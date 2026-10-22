@@ -1,4 +1,4 @@
-import { AUTO_SCHEDULE, DARK_THEMES, STORAGE_KEY, THEMES } from "./theme"
+import { AUTO_SCHEDULE, DARK_THEMES, STORAGE_KEY, THEMES } from "./theme.js"
 
 // Script para o <head>, antes do primeiro paint (sem flash): versão mínima de resolveTheme + applyTheme.
 // Gerado a partir das constantes de theme.ts, então horários e nomes nunca ficam dessincronizados.

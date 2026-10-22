@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { isDarkTheme, normalizePreference, resolveTheme, themeForHour } from "./theme"
+import { isDarkTheme, normalizePreference, resolveTheme, themeForHour } from "./theme.js"
 
 describe("themeForHour", () => {
   it.each([

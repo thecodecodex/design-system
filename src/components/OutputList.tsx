@@ -1,7 +1,7 @@
 "use client"
 
-import { outputListLabels, type OutputListLabels } from "./labels"
-import { useCopy } from "./useCopy"
+import { outputListLabels, type OutputListLabels } from "./labels.js"
+import { useCopy } from "./useCopy.js"
 
 interface Props {
   labels?: Partial<OutputListLabels>

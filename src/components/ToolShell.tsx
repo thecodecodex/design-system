@@ -1,9 +1,9 @@
 "use client"
 
 import type { ReactNode } from "react"
-import { toolShellLabels, type ToolShellLabels } from "./labels"
-import { useCopy } from "./useCopy"
-import { panel, panelHeader } from "./panel"
+import { toolShellLabels, type ToolShellLabels } from "./labels.js"
+import { useCopy } from "./useCopy.js"
+import { panel, panelHeader } from "./panel.js"
 
 interface Props {
   labels?: Partial<ToolShellLabels>

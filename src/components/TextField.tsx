@@ -1,5 +1,6 @@
 "use client"
 
+import { onTextInput } from "./textInput.js"
 import type { ReactNode } from "react"
 
 interface Props {
@@ -23,9 +24,9 @@ export default function TextField({ label, value, onValue, placeholder, multilin
     <label className={`flex flex-col gap-1.5 text-sm font-semibold ${className}`}>
       {label}
       {multiline ? (
-        <textarea rows={rows} spellCheck={false} className={`${box} ${border} min-h-24 resize-y py-2.5 leading-relaxed`} value={value} placeholder={placeholder} onChange={(e) => onValue(e.currentTarget.value)} />
+        <textarea rows={rows} spellCheck={false} className={`${box} ${border} min-h-24 resize-y py-2.5 leading-relaxed`} value={value} placeholder={placeholder} {...onTextInput(onValue)} />
       ) : (
-        <input type={type} step={type === "datetime-local" ? 1 : undefined} spellCheck={false} autoComplete="off" className={`${box} ${border} h-12`} value={value} placeholder={placeholder} onChange={(e) => onValue(e.currentTarget.value)} />
+        <input type={type} step={type === "datetime-local" ? 1 : undefined} spellCheck={false} autoComplete="off" className={`${box} ${border} h-12`} value={value} placeholder={placeholder} {...onTextInput(onValue)} />
       )}
       {hint && <span className="text-[13px] font-normal text-text-secondary">{hint}</span>}
     </label>

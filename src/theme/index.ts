@@ -1,2 +1,2 @@
-export * from "./theme"
-export { themeInitScript } from "./inline-script"
+export * from "./theme.js"
+export { themeInitScript } from "./inline-script.js"
