@@ -1,6 +1,6 @@
 {
   "name": "@thecodecodex/design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Design system do thecodecodex.com: tokens e temas para Tailwind CSS v4 e componentes React",
   "license": "MIT",
   "author": "Douglas Capeletti",

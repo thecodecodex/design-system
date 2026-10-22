@@ -64,6 +64,17 @@ Textos fixos vêm em pt-BR; passe `labels` para traduzir (ex.: `<OutputList labe
 
 Com `preact({ compat: true })` (Astro) ou o alias `react → preact/compat` no bundler, os componentes funcionam sem mudanças.
 
+No Astro, empacote o pacote também no SSR/prerender, senão o Node carrega o React real (instalado como peer) e os hooks quebram:
+
+```js
+// astro.config.mjs
+const bundled = { resolve: { noExternal: ["@thecodecodex/design-system"] } }
+export default defineConfig({
+  integrations: [preact({ compat: true })],
+  vite: { environments: { ssr: bundled, prerender: bundled } },
+})
+```
+
 ## Desenvolvimento
 
 ```bash
