@@ -1,0 +1,49 @@
+{
+  "name": "@thecodecodex/design-system",
+  "version": "0.1.0",
+  "description": "Design system do thecodecodex.com: tokens e temas para Tailwind CSS v4 e componentes React",
+  "license": "MIT",
+  "author": "Douglas Capeletti",
+  "homepage": "https://github.com/thecodecodex/system-design#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thecodecodex/system-design.git"
+  },
+  "bugs": "https://github.com/thecodecodex/system-design/issues",
+  "keywords": ["design-system", "tailwindcss", "react", "preact", "themes"],
+  "type": "module",
+  "sideEffects": ["**/*.css"],
+  "exports": {
+    ".": { "types": "./dist/components/index.d.ts", "default": "./dist/components/index.js" },
+    "./theme": { "types": "./dist/theme/index.d.ts", "default": "./dist/theme/index.js" },
+    "./styles.css": "./src/styles/index.css",
+    "./tokens.css": "./src/styles/tokens.css",
+    "./themes.css": "./src/styles/themes.css",
+    "./base.css": "./src/styles/base.css"
+  },
+  "files": [
+    "dist",
+    "src/styles"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "check": "tsc && eslint && vitest run",
+    "test": "vitest run",
+    "lint": "eslint",
+    "prepublishOnly": "pnpm check && pnpm build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.13.0",
+    "@types/react": "^19.3.0",
+    "eslint": "^9.39.4",
+    "globals": "^15.15.0",
+    "react": "^19.3.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.0",
+    "vitest": "^5.0.5"
+  },
+  "packageManager": "pnpm@12.14.0"
+}

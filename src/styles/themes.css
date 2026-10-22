@@ -1,0 +1,184 @@
+/* Temas: a classe .theme-* vai no <html> (ver @thecodecodex/design-system/theme) */
+@layer base {
+  :root,
+  .theme-claro {
+    --text-primary: #12151e;
+    --text-secondary: #4b5563;
+    --text-tertiary: #ffffff;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-tertiary: #12151e;
+    --bg-tertiary-hover: #1f2937;
+    --btn-primary: #0e7490;
+    --on-accent: #ffffff;
+    --border: #12151e;
+    --contrast: #fd2d78;
+    /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
+    --chart-1: #2a78d6;
+    --chart-2: #eb6834;
+    /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
+    --diff-add: #dcfce7;
+    --diff-add-strong: #86efac;
+    --diff-del: #fee2e2;
+    --diff-del-strong: #fca5a5;
+    --cat-guide: #12151e;
+    --cat-guide-fg: #ffffff;
+    --cat-guide-accent: #22d3ee;
+    --cat-note: #fef9c3;
+    --cat-tool: #cffafe;
+    --cat-project: #ffe4ec;
+    --cat-fg: #12151e;
+    --cat-dev: #e0e7ff;
+    /* fundo da página: contrasta com as superfícies (bg-primary) */
+    --ground: #eef0f3;
+    /* controles nativos (barras de rolagem, campos de data, select) no mesmo modo do tema */
+    color-scheme: light;
+  }
+
+  .theme-papel {
+    --text-primary: #2a2118;
+    --text-secondary: #5c4f3f;
+    --text-tertiary: #f6f1e7;
+    --bg-primary: #f6f1e7;
+    --bg-secondary: #ebe3d2;
+    --bg-tertiary: #2a2118;
+    --bg-tertiary-hover: #3d3226;
+    --btn-primary: #9a3412;
+    --on-accent: #ffffff;
+    --border: #2a2118;
+    --contrast: #e8590c;
+    /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
+    --chart-1: #2a78d6;
+    --chart-2: #eb6834;
+    /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
+    --diff-add: #dcefd4;
+    --diff-add-strong: #9fd18a;
+    --diff-del: #f6d9d0;
+    --diff-del-strong: #eba58f;
+    --cat-guide: #2a2118;
+    --cat-guide-fg: #f6f1e7;
+    --cat-guide-accent: #f2a65a;
+    --cat-note: #f1e2a6;
+    --cat-tool: #d6e5dc;
+    --cat-project: #f0d5ca;
+    --cat-fg: #2a2118;
+    --cat-dev: #e2dcef;
+    /* fundo da página: contrasta com as superfícies (bg-primary) */
+    --ground: #e6dcc6;
+    /* controles nativos (barras de rolagem, campos de data, select) no mesmo modo do tema */
+    color-scheme: light;
+  }
+
+  .theme-crepusculo {
+    --text-primary: #efe6da;
+    --text-secondary: #bcb0a0;
+    --text-tertiary: #262130;
+    --bg-primary: #262130;
+    --bg-secondary: #332c3f;
+    --bg-tertiary: #efe6da;
+    --bg-tertiary-hover: #ddd2c4;
+    --btn-primary: #f2a65a;
+    --on-accent: #262130;
+    --border: #efe6da;
+    --contrast: #ff7aa8;
+    /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
+    --chart-1: #3987e5;
+    --chart-2: #d95926;
+    /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
+    --diff-add: #1f3a2a;
+    --diff-add-strong: #2f6b45;
+    --diff-del: #4a2328;
+    --diff-del-strong: #8a3a44;
+    --cat-guide: #efe6da;
+    --cat-guide-fg: #262130;
+    --cat-guide-accent: #9a3412;
+    --cat-note: #4a4020;
+    --cat-tool: #1e3f45;
+    --cat-project: #4d2639;
+    --cat-fg: #efe6da;
+    --cat-dev: #2e3557;
+    /* fundo da página: contrasta com as superfícies (bg-primary) */
+    --ground: #1c1824;
+    /* controles nativos (barras de rolagem, campos de data, select) no mesmo modo do tema */
+    color-scheme: dark;
+  }
+
+  .theme-escuro {
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --text-tertiary: #12151e;
+    --bg-primary: #12151e;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #e5e7eb;
+    --bg-tertiary-hover: #d1d5db;
+    --btn-primary: #2dfdfd;
+    --on-accent: #12151e;
+    --border: #e5e7eb;
+    --contrast: #3efd2d;
+    /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
+    --chart-1: #3987e5;
+    --chart-2: #d95926;
+    /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
+    --diff-add: #12341f;
+    --diff-add-strong: #1d6b3a;
+    --diff-del: #3f1a1d;
+    --diff-del-strong: #8a2a33;
+    --cat-guide: #e5e7eb;
+    --cat-guide-fg: #12151e;
+    --cat-guide-accent: #0e7490;
+    --cat-note: #3d3914;
+    --cat-tool: #0f3a40;
+    --cat-project: #44182c;
+    --cat-fg: #e5e7eb;
+    --cat-dev: #252a52;
+    /* fundo da página: contrasta com as superfícies (bg-primary) */
+    --ground: #0b0e14;
+    /* controles nativos (barras de rolagem, campos de data, select) no mesmo modo do tema */
+    color-scheme: dark;
+  }
+
+  .theme-contraste {
+    --text-primary: #ffffff;
+    --text-secondary: #e6e6e6;
+    --text-tertiary: #000000;
+    --bg-primary: #000000;
+    --bg-secondary: #161616;
+    --bg-tertiary: #ffffff;
+    --bg-tertiary-hover: #e6e6e6;
+    --btn-primary: #ffe500;
+    --on-accent: #000000;
+    --border: #ffffff;
+    --contrast: #00e5ff;
+    /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
+    --chart-1: #3987e5;
+    --chart-2: #d95926;
+    /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
+    --diff-add: #003d1a;
+    --diff-add-strong: #00692c;
+    --diff-del: #4d0010;
+    --diff-del-strong: #8a001f;
+    --cat-guide: #ffffff;
+    --cat-guide-fg: #000000;
+    --cat-guide-accent: #000000;
+    --cat-note: #ffe500;
+    --cat-tool: #00e5ff;
+    --cat-project: #ff9ec9;
+    --cat-fg: #000000;
+    --cat-dev: #ffffff;
+    /* fundo da página: contrasta com as superfícies (bg-primary) */
+    --ground: #000000;
+    /* controles nativos (barras de rolagem, campos de data, select) no mesmo modo do tema */
+    color-scheme: dark;
+    --scrollbar-thumb: #ffffff;
+    --scrollbar-thumb-hover: var(--contrast);
+    --soft: #8c8c8c;
+  }
+
+  /* borda suave: derivada da borda do tema (o alto contraste define a sua) */
+  :where(:root) {
+    --soft: color-mix(in srgb, var(--border) 18%, transparent);
+    /* barras de rolagem: derivadas do texto secundário (o alto contraste define as suas) */
+    --scrollbar-thumb: color-mix(in srgb, var(--text-secondary) 55%, transparent);
+    --scrollbar-thumb-hover: var(--text-secondary);
+  }
+}

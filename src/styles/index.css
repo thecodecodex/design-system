@@ -1,0 +1,4 @@
+/* Importe depois de @import "tailwindcss" */
+@import "./tokens.css";
+@import "./themes.css";
+@import "./base.css";

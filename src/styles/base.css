@@ -1,0 +1,112 @@
+/* Base: barras de rolagem, foco, títulos, tabelas e seleção (opcional: importe só tokens.css e themes.css para dispensá-la) */
+@layer base {
+
+  /* Barras de rolagem: padrão (Firefox, Chrome/Edge 121+); a da página usa o fundo como trilho,
+     as internas (tabelas, sumário, diagramas) ficam finas e com trilho transparente */
+  * {
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+    scrollbar-width: thin;
+  }
+
+  html {
+    scrollbar-color: var(--scrollbar-thumb) var(--ground);
+    scrollbar-width: auto;
+  }
+
+  /* Safari ainda não tem scrollbar-color: mesmo visual via pseudo-elementos */
+  @supports not (scrollbar-color: auto) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    html::-webkit-scrollbar-track {
+      background: var(--ground);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border: 2px solid transparent;
+      border-radius: 999px;
+      background: var(--scrollbar-thumb) padding-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--scrollbar-thumb-hover) padding-box;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+
+  /* alto contraste: barras na largura normal, mais fáceis de pegar */
+  .theme-contraste,
+  .theme-contraste * {
+    scrollbar-width: auto;
+  }
+
+  body {
+    transition: background-color 0.6s ease, color 0.6s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      transition: none;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /* Foco visível por teclado em todo o site */
+  :focus-visible {
+    outline: 3px solid var(--contrast);
+    outline-offset: 2px;
+  }
+
+  h1 {
+    @apply font-display uppercase font-black leading-none mb-6 mt-12;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  h2 {
+    @apply font-display uppercase font-extrabold leading-none mb-5 mt-10;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+  }
+
+  h3 {
+    @apply font-display font-bold leading-none mb-4 mt-8;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  }
+
+  h4 {
+    @apply font-display tracking-wide font-semibold leading-none mb-4 mt-6;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+
+  h5 {
+    @apply font-display tracking-wide font-medium leading-none mb-3 mt-5;
+    font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  }
+
+  h6 {
+    @apply font-display font-normal leading-none mb-2 mt-4;
+    font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  }
+
+  table:not(.plain),
+  table:not(.plain) th,
+  table:not(.plain) td {
+    border: 1px solid var(--border);
+  }
+
+  ::selection {
+    color: var(--bg-primary);
+    background: var(--contrast);
+  }
+}

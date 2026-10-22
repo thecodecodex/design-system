@@ -1,0 +1,43 @@
+/* Tokens do design system: variante dark e mapeamento das variáveis do tema para utilidades do Tailwind */
+/* .dark é aplicada junto com qualquer tema escuro (crepúsculo, escuro, alto contraste) — ver src/utils/theme.ts */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: var(--font-roboto);
+  --font-body: var(--font-poppins);
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --radius-xl: 0.75rem;
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-tertiary-hover: var(--bg-tertiary-hover);
+  --color-btn-primary: var(--btn-primary);
+  --color-border: var(--border);
+  --color-contrast: var(--contrast);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-diff-add: var(--diff-add);
+  --color-diff-add-strong: var(--diff-add-strong);
+  --color-diff-del: var(--diff-del);
+  --color-diff-del-strong: var(--diff-del-strong);
+  --color-on-accent: var(--on-accent);
+  /* Camadas: fundo da página (ground) < superfície (bg-primary, cards e campos) < recuo (bg-secondary) */
+  --color-ground: var(--ground);
+  --color-surface: var(--bg-primary);
+  --color-inset: var(--bg-secondary);
+  --color-soft: var(--soft);
+
+  /* Cores de categoria (docs/redesign/01-tokens-e-temas.md) */
+  --color-cat-guide: var(--cat-guide);
+  --color-cat-guide-fg: var(--cat-guide-fg);
+  --color-cat-guide-accent: var(--cat-guide-accent);
+  --color-cat-note: var(--cat-note);
+  --color-cat-tool: var(--cat-tool);
+  --color-cat-project: var(--cat-project);
+  --color-cat-dev: var(--cat-dev);
+  --color-cat-fg: var(--cat-fg);
+}
