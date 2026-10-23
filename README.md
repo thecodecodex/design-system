@@ -19,9 +19,25 @@ No CSS principal do app, depois do Tailwind:
 @source "../node_modules/@thecodecodex/design-system/dist";
 ```
 
-`styles.css` = `tokens.css` + `themes.css` + `base.css`. Para não aplicar os estilos base (títulos, foco, tabelas, barras de rolagem), importe só `tokens.css` e `themes.css`.
+`styles.css` = `tokens.css` + `themes.css` + `base.css` + `content.css`.
+
+- `base.css`: barras de rolagem, foco visível e seleção. Serve a sites e apps.
+- `content.css`: títulos com escala e margens de artigo e bordas em toda tabela (conteúdo editorial).
+
+Apps e painéis costumam dispensar o `content.css`:
+
+```css
+@import "tailwindcss";
+@import "@thecodecodex/design-system/tokens.css";
+@import "@thecodecodex/design-system/themes.css";
+@import "@thecodecodex/design-system/base.css";
+```
 
 Utilidades geradas: `bg-surface`, `bg-inset`, `bg-ground`, `text-text-primary`, `text-text-secondary`, `bg-btn-primary`, `text-on-accent`, `border-border`, `border-soft`, `text-contrast`, `bg-chart-1`, `bg-diff-add`, `bg-cat-*` etc.
+
+### Status
+
+`ok`, `warn`, `danger` e `info` (ligado/desligado, OK/atenção/erro), com valores próprios em cada tema e contraste ≥ 4.5:1 sobre a superfície: `text-ok`, `border-danger`, `bg-warn` (pontos e marcadores). Para avisos há o fundo suave `bg-ok-soft`, `bg-warn-soft`, `bg-danger-soft`, `bg-info-soft`. Use os tons como texto, contorno e ponto, nunca como único sinal: `StatusTag`, `StatusMark` e `StatusDot` mudam também a forma.
 
 ### Fontes
 
@@ -56,7 +72,27 @@ No cliente: `watchTheme()` mantém o tema certo (virada de horário, mudança no
 import { Badge, NumberField, Segmented, ToolShell, ParamGroup } from "@thecodecodex/design-system"
 ```
 
-`Badge`, `Checkbox`, `DataTable`, `KeyValue`, `NumberField`, `OutputList`, `ParamGroup`, `Presets`, `RangeField`, `Segmented`, `Stepper`, `TextField`, `ToolShell`, as classes `panel`/`panelHeader` e os hooks `useCopy` e `useHydrated`.
+Formulários e ferramentas: `Badge`, `Checkbox`, `DataTable`, `KeyValue`, `NumberField`, `OutputList`, `ParamGroup`, `Presets`, `RangeField`, `Segmented`, `Stepper`, `TextField`, `ToolShell`, as classes `panel`/`panelHeader` e os hooks `useCopy` e `useHydrated`.
+
+Apps e painéis:
+
+| Componente | Para quê |
+|---|---|
+| `PageHeader` | título da tela (Roboto 900, caixa alta), descrição e ações |
+| `Panel` | painel com faixa de título, contagem e ações; `panelRows` divide linhas de lista |
+| `Button` / `buttonClass()` | variantes `ink` (principal), `outline`, `ghost` e `danger`, tamanhos `md` (44px) e `sm`; `buttonClass` serve para `<a>`/`<Link>` |
+| `StatusTag`, `StatusMark`, `StatusDot` | selo, marcador de forma e ponto ligado/desligado nos tons de status |
+| `Notice` | aviso com fundo suave, borda e ícone do tom |
+| `Dialog` | modal nativo (`<dialog>` + `showModal`): foco preso, Esc fecha, título, rodapé de botões |
+| `ThemeMenu` | botão "Tema" com Auto, Sistema e os 5 temas (chama `watchTheme` uma vez por aba) |
+
+```tsx
+<PageHeader title="Dev Launcher" actions={<Button variant="ink">Subir todos</Button>} />
+<Panel title="Repositórios" count={2} bodyClass="px-6">
+  <div className={panelRows}>…</div>
+</Panel>
+<Dialog open={aberto} onClose={fechar} title="Excluir?" footer={<Button variant="danger">Excluir</Button>}>…</Dialog>
+```
 
 Textos fixos vêm em pt-BR; passe `labels` para traduzir (ex.: `<OutputList labels={{ copy: "Copy", copied: "Copied!" }} … />`).
 

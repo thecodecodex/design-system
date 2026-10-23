@@ -1,6 +1,6 @@
 {
   "name": "@thecodecodex/design-system",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Design system do thecodecodex.com: tokens e temas para Tailwind CSS v4 e componentes React",
   "license": "MIT",
   "author": "Douglas Capeletti",
@@ -10,16 +10,31 @@
     "url": "git+https://github.com/thecodecodex/design-system.git"
   },
   "bugs": "https://github.com/thecodecodex/design-system/issues",
-  "keywords": ["design-system", "tailwindcss", "react", "preact", "themes"],
+  "keywords": [
+    "design-system",
+    "tailwindcss",
+    "react",
+    "preact",
+    "themes"
+  ],
   "type": "module",
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
-    ".": { "types": "./dist/components/index.d.ts", "default": "./dist/components/index.js" },
-    "./theme": { "types": "./dist/theme/index.d.ts", "default": "./dist/theme/index.js" },
+    ".": {
+      "types": "./dist/components/index.d.ts",
+      "default": "./dist/components/index.js"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.ts",
+      "default": "./dist/theme/index.js"
+    },
     "./styles.css": "./src/styles/index.css",
     "./tokens.css": "./src/styles/tokens.css",
     "./themes.css": "./src/styles/themes.css",
-    "./base.css": "./src/styles/base.css"
+    "./base.css": "./src/styles/base.css",
+    "./content.css": "./src/styles/content.css"
   },
   "files": [
     "dist",

@@ -16,6 +16,11 @@
     /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
     --chart-1: #2a78d6;
     --chart-2: #eb6834;
+    /* status (ligado/desligado, ok/atenção/erro): texto, contorno e ponto; ≥ 4.5:1 sobre bg-primary e sobre o -soft */
+    --ok: #166534;
+    --warn: #854d0e;
+    --danger: #be123c;
+    --info: #1d4ed8;
     /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
     --diff-add: #dcfce7;
     --diff-add-strong: #86efac;
@@ -50,6 +55,11 @@
     /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
     --chart-1: #2a78d6;
     --chart-2: #eb6834;
+    /* status (ligado/desligado, ok/atenção/erro): texto, contorno e ponto; ≥ 4.5:1 sobre bg-primary e sobre o -soft */
+    --ok: #166534;
+    --warn: #854d0e;
+    --danger: #9f1239;
+    --info: #1e40af;
     /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
     --diff-add: #dcefd4;
     --diff-add-strong: #9fd18a;
@@ -84,6 +94,11 @@
     /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
     --chart-1: #3987e5;
     --chart-2: #d95926;
+    /* status (ligado/desligado, ok/atenção/erro): texto, contorno e ponto; ≥ 4.5:1 sobre bg-primary e sobre o -soft */
+    --ok: #6ee7a0;
+    --warn: #f2c35a;
+    --danger: #ff8fa3;
+    --info: #93c5fd;
     /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
     --diff-add: #1f3a2a;
     --diff-add-strong: #2f6b45;
@@ -118,6 +133,11 @@
     /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
     --chart-1: #3987e5;
     --chart-2: #d95926;
+    /* status (ligado/desligado, ok/atenção/erro): texto, contorno e ponto; ≥ 4.5:1 sobre bg-primary e sobre o -soft */
+    --ok: #4ade80;
+    --warn: #facc15;
+    --danger: #f87171;
+    --info: #60a5fa;
     /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
     --diff-add: #12341f;
     --diff-add-strong: #1d6b3a;
@@ -152,6 +172,11 @@
     /* gráficos: slots 1 e 2 da paleta de dataviz, validados (CVD e contraste) contra a superfície deste tema */
     --chart-1: #3987e5;
     --chart-2: #d95926;
+    /* status (ligado/desligado, ok/atenção/erro): texto, contorno e ponto; ≥ 4.5:1 sobre bg-primary e sobre o -soft */
+    --ok: #3efd2d;
+    --warn: #ffe500;
+    --danger: #ff7a93;
+    --info: #7cc4ff;
     /* diff: fundo da linha e realce do trecho alterado; texto do tema ≥ 4.5:1 sobre todos */
     --diff-add: #003d1a;
     --diff-add-strong: #00692c;
@@ -177,6 +202,11 @@
   /* borda suave: derivada da borda do tema (o alto contraste define a sua) */
   :where(:root) {
     --soft: color-mix(in srgb, var(--border) 18%, transparent);
+    /* fundos suaves de status (avisos): derivados do tom e da superfície do tema */
+    --ok-soft: color-mix(in srgb, var(--ok) 10%, var(--bg-primary));
+    --warn-soft: color-mix(in srgb, var(--warn) 10%, var(--bg-primary));
+    --danger-soft: color-mix(in srgb, var(--danger) 10%, var(--bg-primary));
+    --info-soft: color-mix(in srgb, var(--info) 10%, var(--bg-primary));
     /* barras de rolagem: derivadas do texto secundário (o alto contraste define as suas) */
     --scrollbar-thumb: color-mix(in srgb, var(--text-secondary) 55%, transparent);
     --scrollbar-thumb-hover: var(--text-secondary);

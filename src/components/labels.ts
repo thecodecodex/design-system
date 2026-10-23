@@ -32,3 +32,33 @@ export const toolShellLabels: ToolShellLabels = {
   howCode: "Ver o código ↗",
   private: "Processado no seu navegador; nada é enviado.",
 }
+
+export interface DialogLabels {
+  close: string
+}
+
+export const dialogLabels: DialogLabels = { close: "Fechar" }
+
+export interface ThemeMenuLabels {
+  title: string
+  // nome de cada preferência (auto, sistema e os 5 temas)
+  names: Record<"auto" | "sistema" | "claro" | "papel" | "crepusculo" | "escuro" | "contraste", string>
+  // "{tema}" é trocado pelo nome do tema que vale agora
+  autoHint: string
+  systemHint: string
+}
+
+export const themeMenuLabels: ThemeMenuLabels = {
+  title: "Tema",
+  names: {
+    auto: "Auto",
+    sistema: "Sistema",
+    claro: "Claro",
+    papel: "Papel",
+    crepusculo: "Crepúsculo",
+    escuro: "Escuro",
+    contraste: "Alto contraste",
+  },
+  autoHint: "muda conforme o horário · agora: {tema}",
+  systemHint: "segue o sistema operacional",
+}
