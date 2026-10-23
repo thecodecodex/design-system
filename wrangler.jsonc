@@ -1,0 +1,11 @@
+// Deploy do Storybook (pnpm build-storybook -> storybook-static/) na Cloudflare: site estático servido como
+// Worker com static assets, sem código no servidor (nada de "main").
+{
+  "name": "design-system-storybook",
+  "compatibility_date": "2026-06-01",
+  "assets": { "directory": "./storybook-static" },
+  // a Cloudflare cria o DNS e o certificado do subdomínio
+  "routes": [{ "pattern": "designsystem.thecodecodex.com", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false
+}

@@ -1,0 +1,34 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Introdução" />
+
+# @thecodecodex/design-system
+
+Tokens, 5 temas e componentes React para Tailwind CSS v4, usados no [thecodecodex.com](https://thecodecodex.com) e no [Switchyard](https://switchyard.thecodecodex.com).
+
+Use a barra **Tema** no topo para ver cada componente em `claro`, `papel`, `crepusculo`, `escuro` e `contraste`.
+
+## Instalação
+
+```bash
+pnpm add @thecodecodex/design-system
+```
+
+```css
+@import "tailwindcss";
+@import "@thecodecodex/design-system/tokens.css";
+@import "@thecodecodex/design-system/themes.css";
+@import "@thecodecodex/design-system/base.css";
+```
+
+```tsx
+import { Button, StatusTag } from "@thecodecodex/design-system"
+```
+
+## Regras
+
+- Cores só por token: `bg-ground`, `bg-surface`, `bg-inset`, `text-text-primary`, `text-text-secondary`, `border-soft`, `contrast` e os tons `ok`, `warn`, `danger`, `info` (com `-soft` para fundos).
+- O tema é a classe `.theme-<nome>` no `<html>`; os temas escuros recebem também `.dark`.
+- Status nunca só por cor: `StatusTag`, `StatusMark` e `Notice` sempre trazem texto ou ícone.
+
+Código: [github.com/thecodecodex/design-system](https://github.com/thecodecodex/design-system)
