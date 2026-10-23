@@ -78,12 +78,27 @@ Apps e painéis:
 
 | Componente | Para quê |
 |---|---|
+| `AppShell` (+ `navLinkClass`) | casca de app: topo com marca e ações, menu lateral recolhível com grupos numerados, rodapé; `renderLink` recebe o `Link` do roteador |
 | `PageHeader` | título da tela (Roboto 900, caixa alta), descrição e ações |
-| `Panel` | painel com faixa de título, contagem e ações; `panelRows` divide linhas de lista |
+| `Panel` / `panelRows` | painel com faixa de título, contagem e ações; `panelRows` divide linhas de lista |
 | `Button` / `buttonClass()` | variantes `ink` (principal), `outline`, `ghost` e `danger`, tamanhos `md` (44px) e `sm`; `buttonClass` serve para `<a>`/`<Link>` |
+| `CopyButton` | "Copiar" → "Copiado!" |
+| `Popover` / `MenuItem` | botão que abre painel ancorado (menu, seletor); fecha com Esc e clique fora |
+| `Tabs` | abas `buttons` (visões da tela) ou `underline` (arquivos, seções) |
+| `Segmented` | escolha única; opções aceitam `description` (cartões) e `tone: "danger"` (ex.: produção); `hideLabel`, `size`, `disabled` |
+| `ChipToggles` | escolha múltipla em chips |
+| `SearchField` | busca com ícone e rótulo acessível |
 | `StatusTag`, `StatusMark`, `StatusDot` | selo, marcador de forma e ponto ligado/desligado nos tons de status |
 | `Notice` | aviso com fundo suave, borda e ícone do tom |
+| `Toast` | aviso flutuante (quem usa decide quando some) |
+| `Stat` | número-resumo com rótulo, dica, tom e destaque |
+| `Meter` | barra 0–100 com marca de meta |
+| `Disclosure` | bloco recolhível (saída de comando, manutenção), neutro ou em tom ok/danger |
 | `Dialog` | modal nativo (`<dialog>` + `showModal`): foco preso, Esc fecha, título, rodapé de botões |
+| `ConfirmDialog` | confirmação com Cancelar e a ação (vermelha quando destrutiva) |
+| `LogView` | console de log: cabeçalho, barra com filtros, copiar/baixar, linhas destacadas por tom, rola até o fim |
+| `DataGrid` | resultado de consulta: filtro, paginação, CSV, JSON, NULL e booleanos destacados |
+| `Markdown` | markdown enxuto renderizado como elementos React (sem HTML cru) |
 | `ThemeMenu` | botão "Tema" com Auto, Sistema e os 5 temas (chama `watchTheme` uma vez por aba) |
 
 ```tsx

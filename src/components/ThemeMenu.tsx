@@ -1,8 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { currentTheme, readPreference, setPreference, watchTheme, type Theme, type ThemePreference } from "../theme/theme.js"
+import { Icon } from "./icons.js"
 import { themeMenuLabels, type ThemeMenuLabels } from "./labels.js"
+import Popover from "./Popover.js"
 
 // Amostra de cada tema: fundo e acento (valores de themes.css)
 const SWATCH: Record<Theme, [string, string]> = {
@@ -37,9 +39,7 @@ function Swatch({ preference }: { preference: ThemePreference }) {
 // Botão "Tema" para cabeçalhos de apps React: Auto (por horário), Sistema e os 5 temas
 export default function ThemeMenu({ labels }: { labels?: Partial<ThemeMenuLabels> }) {
   const text = { ...themeMenuLabels, ...labels, names: { ...themeMenuLabels.names, ...labels?.names } }
-  const [open, setOpen] = useState(false)
   const [preference, setPref] = useState<ThemePreference>("auto")
-  const root = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setPref(readPreference())
@@ -52,43 +52,27 @@ export default function ThemeMenu({ labels }: { labels?: Partial<ThemeMenuLabels
     return () => document.removeEventListener("themechange", onChange)
   }, [])
 
-  useEffect(() => {
-    if (!open) return
-    const outside = (e: MouseEvent) => {
-      if (root.current && !root.current.contains(e.target as Node)) setOpen(false)
-    }
-    const esc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false)
-    }
-    document.addEventListener("mousedown", outside)
-    document.addEventListener("keydown", esc)
-    return () => {
-      document.removeEventListener("mousedown", outside)
-      document.removeEventListener("keydown", esc)
-    }
-  }, [open])
-
   const hint = (p: ThemePreference) =>
     p === "auto" ? text.autoHint.replace("{tema}", text.names[currentTheme("auto")]) : p === "sistema" ? text.systemHint : null
 
   return (
-    <div ref={root} className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        className="inline-flex min-h-11 items-center gap-2 rounded-[10px] border-2 border-border bg-surface px-3.5 text-sm font-bold text-text-primary hover:border-contrast">
-        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" />
-        </svg>
-        <span className="hidden sm:inline">{text.names[preference]}</span>
-        <span className="sr-only sm:hidden">{text.title}: {text.names[preference]}</span>
-        <svg {...ICON_PROPS} width={14} height={14} className="text-text-secondary"><path d="m6 9 6 6 6-6" /></svg>
-      </button>
-      {open && (
-        <div role="menu" aria-label={text.title} className="absolute right-0 z-40 mt-2 w-[280px] max-w-[calc(100vw-32px)] rounded-[14px] border-2 border-border bg-surface p-2 shadow-[4px_4px_0_var(--border)]">
+    <Popover
+      role="menu"
+      panelLabel={text.title}
+      width="w-[280px]"
+      trigger={
+        <>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" />
+          </svg>
+          <span className="hidden sm:inline">{text.names[preference]}</span>
+          <span className="sr-only sm:hidden">{text.title}: {text.names[preference]}</span>
+          <Icon name="chevronDown" size={14} className="text-text-secondary" />
+        </>
+      }>
+      {(close) => (
+        <>
           <div className="px-2.5 pb-1.5 pt-1 font-display text-xs font-extrabold uppercase tracking-[0.08em] text-text-secondary">{text.title}</div>
           {OPTIONS.map((p) => {
             const active = p === preference
@@ -101,7 +85,7 @@ export default function ThemeMenu({ labels }: { labels?: Partial<ThemeMenuLabels
                 onClick={() => {
                   setPreference(p)
                   setPref(p)
-                  setOpen(false)
+                  close()
                 }}
                 className={`flex w-full items-center gap-3 rounded-[10px] px-2.5 py-2 text-left text-sm ${active ? "bg-inset" : "hover:bg-inset"}`}>
                 <Swatch preference={p} />
@@ -109,12 +93,12 @@ export default function ThemeMenu({ labels }: { labels?: Partial<ThemeMenuLabels
                   <span className="font-semibold">{text.names[p]}</span>
                   {hint(p) && <span className="text-xs text-text-secondary">{hint(p)}</span>}
                 </span>
-                {active && <svg {...ICON_PROPS} width={16} height={16}><path d="M20 6 9 17l-5-5" /></svg>}
+                {active && <Icon name="check" />}
               </button>
             )
           })}
-        </div>
+        </>
       )}
-    </div>
+    </Popover>
   )
 }

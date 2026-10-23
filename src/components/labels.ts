@@ -62,3 +62,59 @@ export const themeMenuLabels: ThemeMenuLabels = {
   autoHint: "muda conforme o horário · agora: {tema}",
   systemHint: "segue o sistema operacional",
 }
+
+export interface AppShellLabels {
+  nav: string
+  collapse: string
+  expand: string
+}
+
+export const appShellLabels: AppShellLabels = { nav: "Navegação", collapse: "Recolher menu", expand: "Expandir menu" }
+
+export interface LogViewLabels extends CopyLabels {
+  download: string
+}
+
+export const logViewLabels: LogViewLabels = { ...copyLabels, download: "Baixar" }
+
+export interface DataGridLabels {
+  title: string
+  filter: string
+  // "{n}" é trocado pelo total
+  rows: string
+  oneRow: string
+  csv: string
+  json: string
+  copied: string
+  close: string
+  // "{page}" e "{pages}" são trocados
+  page: string
+  previous: string
+  next: string
+  noColumns: string
+  empty: string
+  truncated: string
+}
+
+export const dataGridLabels: DataGridLabels = {
+  title: "Resultado",
+  filter: "Filtrar nesta lista",
+  rows: "{n} registros",
+  oneRow: "1 registro",
+  csv: "CSV",
+  json: "JSON",
+  copied: "Copiado!",
+  close: "Fechar resultado",
+  page: "Página {page} de {pages}",
+  previous: "Página anterior",
+  next: "Próxima página",
+  noColumns: "Comando executado. Nenhuma coluna retornada.",
+  empty: "Nenhum registro encontrado.",
+  truncated: "Truncado no limite",
+}
+
+export interface ConfirmDialogLabels {
+  cancel: string
+}
+
+export const confirmDialogLabels: ConfirmDialogLabels = { cancel: "Cancelar" }
